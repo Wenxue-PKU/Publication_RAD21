@@ -295,11 +295,6 @@ Contact frequency ratio of intra-TAD and inter-TAD (TAD score)
 ### step_01 call TAD insulation score calculation 
 This step was completed using matrix2insulation.pl published by cworld-dekker lab, the shell script was named "02.RAD21_HiC_call_TAD_InsulationScore.sh"
 
-```{TAD score calculation}
-# bash 02.RAD21_HiC_call_TAD_InsulationScore.sh 
-
-```
-
 ### step_02 read in matrix and boundary file
 ```{TAD score calculation}
 # WT
