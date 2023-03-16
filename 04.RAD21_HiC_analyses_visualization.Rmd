@@ -294,8 +294,10 @@ ggplot(res.m, aes(x = X2, y = value)) +
 Contact frequency ratio of intra-TAD and inter-TAD (TAD score)
 ### step_01 call TAD insulation score calculation 
 This step was completed using matrix2insulation.pl published by cworld-dekker lab, the shell script was named "02.RAD21_HiC_call_TAD_InsulationScore.sh"
+
 ```{TAD score calculation}
-bash 02.RAD21_HiC_call_TAD_InsulationScore.sh 
+# bash 02.RAD21_HiC_call_TAD_InsulationScore.sh 
+
 ```
 
 ### step_02 read in matrix and boundary file
@@ -346,8 +348,6 @@ for (i in OE) {
   file_name <- paste0("/TAD_analysis/TADscore/", i, "_TAD_score.new.bed")
   write.table(x = TAD_score[[i]], file = file_name, sep = "\t", quote = F, row.names = F)
 }
-
-
 
 ```
 
