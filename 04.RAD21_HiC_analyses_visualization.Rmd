@@ -1,5 +1,5 @@
 ---
-title: "01.RAD21_HiC_analyses_visualization.Rmd"
+title: "04.RAD21_HiC_analyses_visualization.Rmd"
 author: "Wenxue Zhao"
 date: '2023-03-07'
 output: html_document
