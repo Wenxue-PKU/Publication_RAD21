@@ -291,7 +291,7 @@ ggplot(res.m, aes(x = X2, y = value)) +
 ```
 
 # Fig4K
-Contact frequency ratio of intra-TAD and inter-TAD (TAD score) (***P < 0.001, paired t-test).
+Contact frequency ratio of intra-TAD and inter-TAD (TAD score)
 ### step_01 call TAD insulation score calculation 
 This step was completed using matrix2insulation.pl published by cworld-dekker lab, the shell script was named "02.RAD21_HiC_call_TAD_InsulationScore.sh"
 ```{TAD score calculation}
@@ -624,8 +624,11 @@ OE_mean <- apply(OE.IS_boundary , 2, function(x) mean( as.numeric(x), na.rm = T)
 
 ```
 
-### step_04 plot Average_insulation_score_distribution_around_TAD_boundaries_in_WT_and_RAD21-OE
+### step_04 plot 
+Average insulation score distribution around TAD boundaries in WT and RAD21-OE
+
 ```{TAD boundary and insulation}
+
 
 par(mar=c(4,5,4,4),lwd=3,cex=1.5)
 plot( wt_mean[14:38] , type = 'l',    
