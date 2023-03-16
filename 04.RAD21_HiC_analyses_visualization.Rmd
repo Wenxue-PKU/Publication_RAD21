@@ -682,7 +682,7 @@ visualise(saddle_out)
 ```
 
 # FigS4A
-Inter-chromosomal interaction ratios of each chromosome in control and RAD21-OE cells. For each chromosome, inter-interaction ratio is the percentage of inter-interaction in total interaction of this chromosome. (***P < 0.001, Wilcoxon test.)
+Inter-chromosomal interaction ratios of each chromosome in control and RAD21-OE cells. For each chromosome, inter-interaction ratio is the percentage of inter-interaction in total interaction of this chromosome. 
 
 ### step_01 load hic dense matrix at 1M resolution.
 Lower resolutiong matrix can reduce the computing time, and higher resolution matrix can also produce consistant conclusion.)
