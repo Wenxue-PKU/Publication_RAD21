@@ -394,7 +394,7 @@ names(TAD_score_merge_filter_500k) # "WT_merge" "OE_merge"
 ```
 
 ### step_05 plot
-```{TAD score calculation}
+```{R TAD score calculation}
 box.wt <- as.numeric(TAD_score_merge[[1]][,4])
 box.oe <- as.numeric(TAD_score_merge[[2]][,4])
 
@@ -688,7 +688,7 @@ Inter-chromosomal interaction ratios of each chromosome in control and RAD21-OE 
 ### step_01 load hic dense matrix at 1M resolution.
 Lower resolutiong matrix can reduce the computing time, and higher resolution matrix can also produce consistant conclusion.)
 
-```{Inter-chromosomal interaction ratios}
+```{R Inter-chromosomal interaction ratios}
 WT_1M <- as.matrix(fread("/hic_results/matrix/WT/iced/1000000/WT_1000000_iced_dense.matrix"))
 OE_1M <- as.matrix(fread("/hic_results/matrix/OE/iced/1000000/OE_1000000_iced_dense.matrix"))
 ```
