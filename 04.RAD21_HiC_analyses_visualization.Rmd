@@ -295,9 +295,15 @@ Contact frequency ratio of intra-TAD and inter-TAD, we defined as TAD score in t
 ### step_01 call TAD insulation score calculation 
 This step was completed using matrix2insulation.pl published by cworld-dekker lab, the shell script was named 02.RAD21_HiC_call_TAD_InsulationScore.sh
 
+```{R TAD score calculation}
+
+bash 02.RAD21_HiC_call_TAD_InsulationScore.sh 
+
+```
+
 ### step_02 read in matrix and boundary file
 
-```{TAD score calculation}
+```{R TAD score calculation}
 # WT
 wt <- "WT"
 TAD_score <- list()
@@ -348,7 +354,7 @@ for (i in OE) {
 ```
 
 ### step_03 check data
-```{TAD score calculation}
+```{R TAD score calculation}
 TAD_score_merge <- TAD_score
 a <- ls()
 rm(list=a[which(a!="TAD_score_merge")])
@@ -369,7 +375,7 @@ quantile(TAD_length_wt)
 
 ### step_04 filter TAD length (if needed to do so)
 refering to "Condensin-driven remodelling of X chromosome topology during dosage compensation"
-```{TAD score calculation}
+```{R TAD score calculation}
 sample_name <- c("WT", "OE") 
 TAD_score_filter_500k <- list()
 for (i in sample_name){
@@ -413,7 +419,7 @@ FigS4B: Distribution of TAD length in control and RAD21-OE cells.
 FigS4C: The number of short (< 500 kb) and long (> 500 kb) TADs.
 
 ### step_01 distribution of TAD length in all samples
-```{TAD length distribution}
+```{R TAD length distribution}
 sample_name <- c("WT", "OE") 
 
 TAD_length <- list()
@@ -429,7 +435,7 @@ for ( i in 1:2) {
 ```
 
 ### step_02 line plot
-```{TAD length distribution}
+```{R TAD length distribution}
 
 par(cex = 1.5, lwd = 3, xpd = F)
 plot( density(TAD_length[[1]]/1000), type = "l", 
@@ -453,7 +459,7 @@ boxplot(TAD_length,ylim=c(0,1.8e6))
 ### step_03 statistic for TAD smaller than 500kb and larger than 500kb in each chromosome
 referring to the methods in publications studying the WAPL-depletion (Haarhuis et al., 2017; Wutz et al., 2017).
 
-```{TAD number statistic}
+```{R TAD number statistic}
 TAD_number <- list()
 for (i in sample_name) {
   TAD_number[[i]] <- dim(TAD_score_merge_filter_200k[[i]])[1]
@@ -514,7 +520,7 @@ wilcox.test(large_TAD_num_500k_chr.df$WT_merge, large_TAD_num_500k_chr.df$OE_mer
 ```
 
 ### step_04 stack barplot
-```{TAD number statistic}
+```{R TAD number statistic}
 
 small_TAD_500k <- list()
 for (i in sample_name) {
@@ -550,7 +556,7 @@ ggplot(melt(TAD_num_class), aes(x=type, y=value, fill=variable)) +
 # FigS4D
 Average insulation score distribution around TAD boundaries (±500 kb) in control and RAD21-OE cells.
 ### step_01 Read boundary and insulation data
-```{TAD boundary and insulation}
+```{R TAD boundary and insulation}
 # WT
 wt.insulation <- list()
 wt.boundary <- list()
@@ -582,7 +588,7 @@ rm(file.boundary, file.insulation, i)
 ```
 
 ### step_02 For each TAD boundary site, calculate the insulation score around it.
-```{TAD boundary and insulation}
+```{R TAD boundary and insulation}
 
 wt.IS_boundary <- numeric()
 for ( i in c(1:22,"X")) {
@@ -610,7 +616,7 @@ rm(tmp, i, OE.boundary, OE.insulation)
 ```
 
 ### step_03 Calculate median and mean of each column.
-```{TAD boundary and insulation}
+```{R TAD boundary and insulation}
 
 wt_median <- apply(wt.IS_boundary , 2, function(x) median( as.numeric(x), na.rm = T) )
 OE_median <- apply(OE.IS_boundary , 2, function(x) median( as.numeric(x), na.rm = T) )
@@ -623,7 +629,7 @@ OE_mean <- apply(OE.IS_boundary , 2, function(x) mean( as.numeric(x), na.rm = T)
 ### step_04 plot 
 Average insulation score distribution around TAD boundaries in WT and RAD21-OE
 
-```{TAD boundary and insulation}
+```{R TAD boundary and insulation}
 
 
 par(mar=c(4,5,4,4),lwd=3,cex=1.5)
@@ -688,7 +694,7 @@ OE_1M <- as.matrix(fread("/hic_results/matrix/OE/iced/1000000/OE_1000000_iced_de
 ```
 
 ### step_02 extract trans interaction matrix
-```{Inter-chromosomal interaction ratios}
+```{R Inter-chromosomal interaction ratios}
 
 df.chr.length <- read.table("/lustre/user/liclab/zhaowx/tools/HiC-Pro_2.11.4/annotation/chrom_hg19.sizes", row.names = 1)
 chr.length <- as.vector(df.chr.length$V2)
@@ -727,7 +733,7 @@ OE.chr_matrix <- trans_matrix(OE_1M,"OE")
 ```
 
 ### step_03 calculate inter-chromosomal interaction ratios of the whole genome
-```{Inter-chromosomal interaction ratios}
+```{R Inter-chromosomal interaction ratios}
 
 # R function to calculate the sum of upper-triangular interaction of a Hi-C matrix
 UpperTriSum <- function ( HiC_matrix) {
@@ -796,7 +802,7 @@ pheatmap(log2(OE_sum_ratio+1),
 ```
 
 ### step_04 calculate inter-chromosomal interaction ratios of each chromosome
-```{Inter-chromosomal interaction ratios}
+```{R Inter-chromosomal interaction ratios}
 
 # WT trans interaction ratio
 WT.trans.ratio <- c()
@@ -840,7 +846,7 @@ wilcox.test(WT.OE.trans.ratio[,1], WT.OE.trans.ratio[,2], paired = T) # p-value 
 ```
 
 ### step_05 boxplot
-```{Inter-chromosomal interaction ratios}
+```{R Inter-chromosomal interaction ratios}
 
 ggplot(WT.OE.trans.ratio.m, aes(x = Var2, y = value)) + 
   geom_boxplot(aes(fill=Var2), outlier.size = 0,outlier.shape = NA)+
