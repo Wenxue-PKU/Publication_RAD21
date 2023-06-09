@@ -4,8 +4,8 @@ The essential codes of data analysis for reproducible research.
 ---
 
 ## Overview
-- The R markdown scripts contains the analyses used to generate Hi-C statistic figures in our work. 
-- The shell scripts contains the main step for Hi-C data preprocessing.
+- The R markdown scripts contain the analyses used to generate Hi-C statistic figures in our work. 
+- The shell scripts contain the main step for Hi-C data preprocessing.
 - All the sequencing data have been upload to GEO under accession number GSE183186 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183186). We also upload HiC matrix data as processed results that can be download from GEO. 
 
 ---
