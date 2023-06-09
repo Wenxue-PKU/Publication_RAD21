@@ -1,12 +1,10 @@
 # Publication_RAD21
 The essential codes of data analysis for reproducible research.
 
----
 
 ## Overview
 This R markdown contains the scripts used to generate Hi-C statistic figures in our work. All the sequencing data have been upload to GEO under accession number GSE183186 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183186). We also upload HiC matrix data as processed results that can be download from GEO. 
 
----
 
 ## Abstract
 **Background:** The ring-shaped cohesin complex is an important factor for the formation of chromatin loops and topologically associating domains (TADs) by loop extrusion. However, the regulation of association between cohesin and chromatin is poorly understood. In this study, we use super-resolution imaging to reveal the unique role of cohesin subunit RAD21 in cohesin loading and chromatin structure regulation.\
