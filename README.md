@@ -1,5 +1,5 @@
 # Publication_RAD21
-Analyses scripts for this project
+The essential codes of data analysis for reproducible research.
 
 ---
 
