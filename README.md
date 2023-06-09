@@ -15,8 +15,6 @@ This R markdown contains the scripts used to generate Hi-C statistic figures in 
 \
 **Conclusions:** Our results provide key insights into the molecular mechanism by which RAD21 facilitates the cohesin loading process and provide an explanation to how cohesin and loader work cooperatively to promote chromatin extrusion, which has important implications in construction of three-dimensional genome organization.
 
-
-
 ---
 ## Cite
 
