@@ -24,3 +24,4 @@ The essential codes of data analysis for reproducible research.
 
 ## Cite
 
+Sun, Y., Xu, X., Zhao, W. et al. RAD21 is the core subunit of the cohesin complex involved in directing genome organization. Genome Biol 24, 155 (2023). https://doi.org/10.1186/s13059-023-02982-1
